@@ -54,5 +54,5 @@ def redirect_hash(hash):
         )
     return redirect(url)
 
-
-app.run(port=8080)
+if __name__ == '__main__':
+    app.run(port=8080)
