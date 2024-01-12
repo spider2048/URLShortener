@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block site_body %}
+
+<div class="card mx-auto w-50 m-5">
+    <div class="card-body">
+        <h4 class="card-title text-center">URL Shortener</h4>
+        <hr>
+        
+        <form class="d-flex" action="/shorten" method="post">
+            {{ form.csrf_token }}
+            {{ form.url }}
+            {{ form.submit }}
+        </form>
+        
+        <div class="m-3">
+        {% if context %}
+            {% if context.log %}
+            <div class="alert alert-primary">
+                {{context.log}}
+            </div>
+            {% endif %}
+
+            {% if context.error %}
+            <div class="alert alert-danger">
+                {{context.error}}
+            </div>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
