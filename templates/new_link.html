@@ -10,9 +10,14 @@
         <div class="mx-auto d-flex justify-content-between">
             <div>
                 <a class="btn btn-primary" href="{{context.to}}" role="button">{{ context.to }}</a>
+                <a class="btn btn-primary" href="/stats/{{context.hash}}" role="button">Statistics</a>
             </div>
 
             <a class="btn btn-danger" href="{{ context.from }}" role="button">{{context.from}}</a>
+        </div>
+
+        <div class="text-center">
+            <a class="btn btn-primary" href="/" role="button">Shorten Another URL!</a>
         </div>
     </div>
 </div>

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "urlshortener"
+version = "1.0"
+description = "An application to shorten URLs"
+authors = ["Sp1d3R <aspy1337@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask-wtf = "^1.2.1"
+bootstrap-flask = "^2.3.3"
+waitress = "^2.1.2"
+sqlalchemy = "^2.0.25"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

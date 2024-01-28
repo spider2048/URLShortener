@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block site_body %}
+
+<div class="card mx-auto w-50 m-5">
+    <div class="card-body">
+        <h4 class="card-title text-center">
+            URL Shortener
+        </h4>
+        <hr>
+
+        {% if not context.exists %}
+        <div class="text-center">
+            <span> hash <b> `{{context.hash}}` </b> doesn't exist </span>
+        </div>
+        {% endif %}
+
+        {% if context.exists %}
+        <div class="text-center">
+            <h5>
+                Statistics for <a class="btn btn-primary" href="/h/{{context.hash}}" role="button">{{ context.hash
+                    }}</a>
+                <a class="btn btn-danger" href="{{context.target}}" role="button">{{ context.target }}</a>
+            </h5>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Hash</th>
+                        <th scope="col">Referer</th>
+                        <th scope="col">IP Address</th>
+                        <th scope="col">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for stats in context.stats %}
+                    <tr>
+                        <th scope="row"> {{loop.index}}</th>
+                        <td>{{stats.hash}}</td>
+                        <td>{{stats.referer}}</td>
+                        <td>{{stats.ip}}</td>
+                        <td>{{stats.time}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <div class="text-center">
+            <a class="btn btn-primary" href="/" role="button">Shorten Another URL!</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
