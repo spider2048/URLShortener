@@ -8,14 +8,10 @@ A nice URL shortener with a flask backend
 
 ## Usage
 
-Get the requirements:
+Use `poetry`
 
 ```bash
-pip install -r requirements.txt
-```
-
-Run the app:
-
-```bash
-flask run --host 0.0.0.0 --port=8000
+git clone https://github.com/spider2048/URLShortener --depth 1
+poetry init
+python wsgi.py # uses waitress and minifies html
 ```
